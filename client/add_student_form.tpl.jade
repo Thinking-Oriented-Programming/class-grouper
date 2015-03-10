@@ -1,9 +1,9 @@
 form#add-student(data-parsley-validate)
   .ui.labeled.input
-    input(type='text' name='studentId' placeholder='学号' data-parsley-minlength='20' data-parsley-trigger='keyup' required)
+    input(type='text' name='studentId' placeholder='学号' data-parsley-pattern="^\d{8}$" data-parsley-trigger='keyup' required)
 
   .ui.labeled.input
-    input(type='text' name='name' placeholder='姓名' data-parsley-minlength='20' data-parsley-trigger='keyup' required)
+    input(type='text' name='name' placeholder='姓名' data-parsley-minlength='2' data-parsley-trigger='keyup' required)
 
   .ui.button.clear 清除
   .ui.button.positive.submit 提交

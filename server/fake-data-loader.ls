@@ -18,6 +18,3 @@ load-user = (user)!->
 
 Meteor.startup ->
   load-users users
-
-  for i in [1 to 108]
-    Students.insert student-id: i, name: i
