@@ -4,11 +4,11 @@ Template['grouping_buttons'].helpers {
 
 students-amount = null
 groups-amount = null
-rearrange-index = -1
+rearrange-index = null
 get-group = (index)->
   students-in-a-group = Math.floor students-amount / groups-amount
   group-index = Math.floor index / students-in-a-group
-  if group-index < groups-amount then group-index else ++rearrange-index
+  if group-index < groups-amount then group-index else --rearrange-index
 
 Template['grouping_buttons'].events {
   'click .clear-all-student': !-> if confirm 'Clear all students?' then
@@ -16,6 +16,7 @@ Template['grouping_buttons'].events {
 
   'click .grouping': !-> 
     groups-amount := parse-int ($ 'input.groups-amout' .val!)
+    rearrange-index := groups-amount 
     if groups-amount < 1
       alert 'Group amount must great than 1'
     else
